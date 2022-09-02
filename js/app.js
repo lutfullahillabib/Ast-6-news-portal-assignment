@@ -11,7 +11,17 @@ const loadNews = async () => {
 }
 
 const displayNews = news => {
-    console.log(news);
+    // console.log(news);
+    const ul = document.getElementById('ul');
+    news.forEach(catagory => {
+        console.log(catagory);
+        const li = document.createElement('li');
+        li.classList.add('nav-item');
+        li.innerHTML = `
+        <a class="nav-link" aria-current="page" href="#">${catagory.category_name}</a>
+        `
+        ul.appendChild(li);
+    });
 }
 
 loadNews();
