@@ -18,7 +18,7 @@ const displayNews = news => {
         const li = document.createElement('li');
         li.classList.add('nav-item');
         li.innerHTML = `
-        <a onclick = loadCatagory('${catagory.category_id}') class="nav-link" aria-current="page" href="#">${catagory.category_name ? catagory.category_name : 'Name Not Found'}</a>
+        <a onclick = loadCatagory('${catagory.category_id}') class="nav-link  fw-semibold" aria-current="page" href="#">${catagory.category_name ? catagory.category_name : 'Name Not Found'}</a>
         `
         ul.appendChild(li);
 
@@ -29,6 +29,7 @@ const displayNews = news => {
 // load category
 const loadCatagory = async (categoryId) => {
     toggleSpinner(true);
+
     // console.log(categoryId);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     try {
