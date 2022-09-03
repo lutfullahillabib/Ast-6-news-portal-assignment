@@ -14,7 +14,7 @@ const displayNews = news => {
     // console.log(news);
     const ul = document.getElementById('ul');
     news.forEach(catagory => {
-        console.log(catagory);
+        // console.log(catagory);
         const li = document.createElement('li');
         li.classList.add('nav-item');
         li.innerHTML = `
@@ -26,18 +26,23 @@ const displayNews = news => {
 
 // load category
 const loadCatagory = async (categoryId) => {
+    toggleSpinner(true);
     // console.log(categoryId);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     try {
         const res = await fetch(url);
         const data = await res.json();
         // console.log(data.data);
+
+        // console.log(data.data.length)
+
         showCatagory(data.data);
     }
     catch (error) {
         console.log(error);
     }
 }
+
 
 // show category
 const showCatagory = show => {
@@ -49,12 +54,12 @@ const showCatagory = show => {
     show.forEach(showSingleCategory => {
         console.log(showSingleCategory);
         const showCategoryDiv = document.createElement('div');
-        showCategoryDiv.classList.add('row', 'mb-3', 'border', 'border-3', 'rounded-4');
+        showCategoryDiv.classList.add('row', 'mb-3', 'border', 'border-3', 'rounded-4', 'bg-white');
         showCategoryDiv.innerHTML = `
         <div class="col-md-4 p-0">
-        <img src="${showSingleCategory.thumbnail_url ? showSingleCategory.thumbnail_url : 'No Img Found'}" class="img-fluid rounded-start" alt="...">
+        <img src="${showSingleCategory.thumbnail_url ? showSingleCategory.thumbnail_url : 'No Img Found'}" class="img-fluid w-full rounded-start" alt="...">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 py-3">
             <div class="card-body">
                 <h5 class="card-title">${showSingleCategory.title ? showSingleCategory.title : 'No Title Found'}</h5>
                 <p class="card-text">${showSingleCategory.details ? showSingleCategory.details.slice(0, 150) : 'No Details Found'}...</p>
@@ -88,8 +93,41 @@ const showCatagory = show => {
         </div >
     `
         showCategory.appendChild(showCategoryDiv);
+
     });
+
+    toggleSpinner(false);
+
+    // $-items found for category ${category}
+
+    const newsArr = [];
+
+    const newsLength = (document.getElementById("news-number").innerText = show.length);
+
+    for (let i = 0; i > 0; i++) {
+        const name = newsArr[i].newsLength;
+        const span = document.createElement("span");
+        span.innerHTML = `
+            <p>${newsArr}</p>
+        `;
+        newsLength.appendChild(name);
+    }
+
+    //
+
 }
+
+//spinner
+const toggleSpinner = (isLoading) => {
+    const loaderSpinner = document.getElementById('spinner')
+    if (isLoading) {
+        loaderSpinner.classList.remove('d-none')
+    }
+    else {
+        loaderSpinner.classList.add('d-none')
+    }
+}
+
 
 //load Modal
 const loadModal = async (id) => {
@@ -125,8 +163,8 @@ const displayModal = modal => {
         <p><strong>Views:</strong> ${modal.total_view ? modal.total_view : 'Not Found'}</p>
     
     `
-
 }
+
 
 loadNews();
 
