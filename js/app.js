@@ -24,7 +24,7 @@ const displayNews = news => {
     });
 }
 
-// load & show category
+// load category
 const loadCatagory = async (categoryId) => {
     // console.log(categoryId);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
@@ -39,6 +39,7 @@ const loadCatagory = async (categoryId) => {
     }
 }
 
+// show category
 const showCatagory = show => {
     console.log(show);
 
@@ -77,9 +78,10 @@ const showCatagory = show => {
             </p>
         </div>
 
-        <button type="button" class="btn btn-primary rounded px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button onclick = loadModal('${showSingleCategory._id}') type="button" class="btn btn-primary rounded px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="fa-sharp fa-solid fa-arrow-right"></i>
         </button>
+        
 
     </div>
                     
@@ -87,7 +89,44 @@ const showCatagory = show => {
     `
         showCategory.appendChild(showCategoryDiv);
     });
+}
+
+//load Modal
+const loadModal = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        // console.log(data.data[0]);
+        displayModal(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+//show Modal
+const displayModal = modal => {
+    console.log(modal);
+
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = modal.title ? modal.title : "No Title found";
+
+    const modalAll = document.getElementById('modal');
+    modalAll.textContent = '';
+
+    modalAll.innerHTML = `
+    
+        <img class="img-fluid" src="${modal.image_url ? modal.image_url : 'No Img'}" alt="">
+        <h5>Author Name: ${modal.author.name ? modal.author.name : 'No Name Found'}</h5>
+        <p><strong>Published Date:</strong> ${modal.author.published_date ? modal.author.published_date : 'No Date Found'}</p>
+        <p><strong>Details:</strong> ${modal.details ? modal.details : 'No Deatils Found'}</p>
+        <p><strong>Rating:</strong> ${modal.rating.number ? modal.rating.number : 'Not Found'}</p>
+        <p><strong>Views:</strong> ${modal.total_view ? modal.total_view : 'Not Found'}</p>
+    
+    `
 
 }
 
 loadNews();
+
