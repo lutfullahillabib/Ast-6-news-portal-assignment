@@ -11,7 +11,7 @@ const loadNews = async () => {
 }
 
 const displayNews = news => {
-    console.log(news);
+    // console.log(news);
     const ul = document.getElementById('ul');
     news.forEach(catagory => {
         // console.log(catagory);
@@ -51,7 +51,7 @@ const loadCatagory = async (categoryId) => {
 
 // show category
 const showCatagory = (show, catId) => {
-    console.log(show, catId);
+    // console.log(show, catId);
 
     const showCategory = document.getElementById('show-category');
     showCategory.innerHTML = '';
@@ -72,7 +72,7 @@ const showCatagory = (show, catId) => {
     })
 
     show.forEach(showSingleCategory => {
-        console.log(showSingleCategory);
+        // console.log(showSingleCategory);
         const showCategoryDiv = document.createElement('div');
         showCategoryDiv.classList.add('row', 'mb-3', 'border', 'border-3', 'rounded-4', 'bg-white');
         // text-truncate
@@ -191,7 +191,7 @@ const loadModal = async (id) => {
 
 //show Modal
 const displayModal = modal => {
-    console.log(modal);
+    // console.log(modal);
 
     const modalTitle = document.getElementById('exampleModalLabel');
     modalTitle.innerText = modal.title ? modal.title : "No Title found";

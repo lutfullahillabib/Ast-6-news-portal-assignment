@@ -1,3 +1,5 @@
+@Assignment-6
+
 # news-portal-assignemnt
 Please create yoru private repo 
 ## [https://classroom.github.com/a/PZ8KfL5q](https://classroom.github.com/a/PZ8KfL5q)
@@ -27,3 +29,14 @@ Example: https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f1
 ### Missing Data: 
 Here total view and author name is null
 https://openapi.programming-hero.com/api/news/2e78e5e0310c2e9adbb6efb1a263e745 
+
+...
+
+Github Link (Private): 
+
+https://github.com/Programming-Hero-Web-Course4/b6-news-portal-assignment-lutfullahillabib
+
+Live Site (Netlify): 
+
+
+

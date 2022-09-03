@@ -14,6 +14,14 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/c672fc591a.js" crossorigin="anonymous"></script>
+    <!-- custom-css -->
+    <style>
+        a:hover {
+            text-decoration: underline;
+            font-weight: 700 !important;
+            color: blueviolet !important;
+        }
+    </style>
 </head>
 
 <body class="bg-light">
@@ -48,78 +56,151 @@
     </header>
 
     <main>
-        <section class="py-5">
-            <div class="container py-5">
+        <section class="container py-4">
+            <div class="py-4">
+                <h1 class="text-center pb-3 text-primary">Some ES6 Interview Questions.</h1>
                 <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <!-- ques-1-start -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                aria-controls="panelsStayOpen-collapseOne">
-                                Var, Let, and Const – What's the Difference?
+                            <button class="accordion-button text-primary fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                                aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                What are the differences between var, let and const in JavaScript?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingOne">
                             <div class="accordion-body">
-                                <strong>var:</strong> Scope essentially means where these variables are available for
-                                use. var declarations are globally scoped or function/locally scoped. <br>
-                                - var variables can be re-declared and updated
-                                - var variables are hoisted to the top of their scope and initialized with a value of
-                                undefined.
-                                <strong>let:</strong> let is now preferred for variable declaration. It's no surprise as
-                                it comes as an improvement to var declarations. It also solves the problem with var that
-                                we just covered. <br>
-                                <strong></strong>
+                                <!-- Ans-1 -->
+                                <strong>var</strong> Variable can be updated and re-declared within its scope.
+                                <br>
+                                <strong>let</strong> can be updated but not re-declared.
+                                <br>
+                                But <strong>const</strong> can neither be updated nor re-declared. They are all hoisted
+                                to the top of their scope. But while <b>var</b> variables are initialized with
+                                undefined,
+                                <b>let</b>
+                                and
+                                <b>const</b> variables are not initialized.
+                                <br>
+                                <b>const</b> declares a variable with a constant value. Use the const
+                                keyword if
+                                the variable that you are declaring should not be allowed to be reassigned in the
+                                future.
                             </div>
                         </div>
                     </div>
+                    <!-- ques-1-end -->
+
+                    <!-- ques-2-start -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseTwo">
-                                What is difference between Arrow Functions and Regular Functions?
+                            <button class="accordion-button collapsed text-primary fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                What are the differences between Arrow Function and Regular Function?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                <!-- Ans-2 -->
+                                An <strong>arrow</strong> function is also known as the fat <b>arrow</b> function. It is
+                                a new
+                                feature
+                                introduced in ES6 that is a more concise syntax for writing function expressions.
+                                <br>
+                                <strong>Regular</strong> functions created using function declarations or expressions
+                                are constructible
+                                and callable. Since <b>regular</b> functions are constructible, they can be called using
+                                the
+                                new keyword. However, the <b>arrow</b> functions are only callable and not
+                                constructible,
+                                <br>
+                                For Example,
+                                <b>arrow</b> functions can never be used as constructor functions. Both <b>regular</b>
+                                JavaScript
+                                functions and <b>arrow</b> functions work in a similar manner but there are some
+                                differences
+                                between them.
                             </div>
                         </div>
                     </div>
+                    <!-- ques-2-end -->
+
+                    <!-- ques-3-start -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseThree">
-                                Explain about Map, ForEach, Filter...
+                            <button class="accordion-button collapsed text-primary fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                                aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                What are the differences between Map, forEach, Filter and Find in JavaScript?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body">
-                                <strong>forEach:</strong> forEach() allows us to loop through an array and access each
-                                item individually, just like a for loop does but in a nicer syntax. <br>
-                                <strong>map:</strong> As mentioned for .forEach() , if you want to iterate over an
-                                array, manipulate the value(s) somehow and return the final result, you need to use a
-                                .map(). <br>
-                                <strong>filter:</strong> filter() does what it says on the tin, it filters the array
-                                into smaller ones based on whether each value passes/fails the filter condition..
+                                <!-- Ans-3 -->
+                                The <strong>forEach()</strong> method does not create a new array based on the given
+                                array.
+                                <br>
+                                The <strong>map()</strong>
+                                method creates an entirely new array. The <b>forEach()</b> method returns 'undefined'.
+                                <br>
+                                The
+                                <b>map()</b> method returns the newly created array according to the provided callback
+                                function.
+                                <br>
+                                The <strong>find()</strong> method is used to find all the descendant elements
+                                of the selected
+                                element. It finds the element in the DOM tree by traversing through the root to leaf.
+                                <br>
+                                The <strong>filter()</strong> method is used to <b>filters</b> all the elements and
+                                returns the
+                                element that
+                                matches and the element that do not match are removed.
                             </div>
                         </div>
                     </div>
+                    <!-- ques-3-end -->
+
+                    <!-- ques-4-start -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                            <button class="accordion-button collapsed text-primary fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour"
+                                aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                Why should we use Template string in javaScript ?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingFour">
+                            <div class="accordion-body">
+                                <!-- Ans-4 -->
+                                <strong>Template literals</strong> are literals delimited with <b>backtick (`)</b>
+                                characters,
+                                allowing for
+                                multi-line strings, for string interpolation with embedded expressions, and for special
+                                constructs called tagged templates.
+                                <br>
+                                <b>Template literals</b> are sometimes informally
+                                called
+                                template strings, because they are used most commonly for string interpolation (to
+                                create strings by doing substitution of placeholders). However, a tagged template
+                                literal may not result in a string; it can be used with a custom tag function, to
+                                perform whatever operations you want on the different parts of the template literal.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ques-4-end -->
+
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- footer -->
     <footer class="bg-white">
         <p class="text-center py-3 m-0"><small>Copyright 2021 News Portal</small></p>
     </footer>
