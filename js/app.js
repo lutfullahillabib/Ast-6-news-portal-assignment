@@ -11,7 +11,7 @@ const loadNews = async () => {
 }
 
 const displayNews = news => {
-    // console.log(news);
+    console.log(news);
     const ul = document.getElementById('ul');
     news.forEach(catagory => {
         // console.log(catagory);
@@ -21,8 +21,10 @@ const displayNews = news => {
         <a onclick = loadCatagory('${catagory.category_id}') class="nav-link" aria-current="page" href="#">${catagory.category_name ? catagory.category_name : 'Name Not Found'}</a>
         `
         ul.appendChild(li);
+
     });
 }
+
 
 // load category
 const loadCatagory = async (categoryId) => {
@@ -34,9 +36,11 @@ const loadCatagory = async (categoryId) => {
         const data = await res.json();
         // console.log(data.data);
 
-        // console.log(data.data.length)
+        // console.log(data.data.length);
 
-        showCatagory(data.data);
+        // console.log(categoryId);
+
+        showCatagory(data.data, categoryId);
     }
     catch (error) {
         console.log(error);
@@ -45,8 +49,8 @@ const loadCatagory = async (categoryId) => {
 
 
 // show category
-const showCatagory = show => {
-    console.log(show);
+const showCatagory = (show, catId) => {
+    console.log(show, catId);
 
     const showCategory = document.getElementById('show-category');
     showCategory.innerHTML = '';
@@ -98,23 +102,52 @@ const showCatagory = show => {
 
     toggleSpinner(false);
 
+
+
     // $-items found for category ${category}
 
-    const newsArr = [];
+    const newsLength = document.getElementById("news-number");
+    newsLength.innerText = show.length;
+    // console.log(show.length);
 
-    const newsLength = (document.getElementById("news-number").innerText = show.length);
+    // const newsArr = [];
+    // for (let i = 0; i > 0; i++) {
+    //     const name = newsArr[i].newsLength;
+    //     const span = document.createElement("span");
+    //     span.innerHTML = `
+    //         <p>${newsArr}</p>
+    //     `;
+    //     newsLength.appendChild(name);
+    // }
 
-    for (let i = 0; i > 0; i++) {
-        const name = newsArr[i].newsLength;
-        const span = document.createElement("span");
-        span.innerHTML = `
-            <p>${newsArr}</p>
-        `;
-        newsLength.appendChild(name);
+    //// again loading all-categories for span innterText
+    const loadNews = async () => {
+        const url = `https://openapi.programming-hero.com/api/news/categories`;
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            displayNews(data.data.news_category);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 
-    //
+    //// Now, again display from all-categories for span innterText
+    const displayNews = news => {
+        console.log(news);
 
+        // convert to int the categoryId from string..
+        const CatNumId = parseInt(catId);
+        console.log(CatNumId);
+
+        //category_name in span
+        const categoryName = document.getElementById("categoryName");
+        categoryName.innerText = news[CatNumId - 1].category_name;
+    }
+
+    loadNews();
+    ////
 }
 
 //spinner
