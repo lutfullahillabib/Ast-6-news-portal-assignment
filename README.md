@@ -31,6 +31,7 @@ Here total view and author name is null
 https://openapi.programming-hero.com/api/news/2e78e5e0310c2e9adbb6efb1a263e745 
 
 ...
+My = 
 
 Github Link (Private): 
 
@@ -38,5 +39,5 @@ https://github.com/Programming-Hero-Web-Course4/b6-news-portal-assignment-lutful
 
 Live Site (Netlify): 
 
-
+https://ast-6-news-portal-assignment-main.netlify.app/
 

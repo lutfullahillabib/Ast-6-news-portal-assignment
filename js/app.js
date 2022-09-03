@@ -159,6 +159,7 @@ const showCatagory = (show, catId) => {
         // categoryName.innerText = news[catId - 1].category_name;
     }
 
+    //2nd time auto load for fetch...
     loadNews();
     ////
 }
@@ -212,7 +213,9 @@ const displayModal = modal => {
     `
 }
 
-
+//2nd-Nav - All-categories...
 loadNews();
+
+//Auto Main Page Load... (2nd-Nav Click)-categories...
 loadCatagory("08");
 
